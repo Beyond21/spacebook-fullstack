@@ -2,7 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/spacebookDB', function() {
+mongoose.connect(process.env.her_daniel_url || 'mongodb://localhost/spacebookDB', function() {
     console.log("DB connection established!!!");
 })
 
@@ -74,7 +74,7 @@ app.post('/posts/:id', function(req, res) {
 
 
 
-app.listen(8000, function() {
+app.listen(process.env.PORT || 8000, function() {
     console.log("listeninggggg");
 
 });
